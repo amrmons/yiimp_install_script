@@ -824,19 +824,25 @@ else
     fi
 fi
 
-if [[ ("$precompiled" == "true") ]]; then
+if [[ "$precompiled" == "true" ]]; then
     COINTARGZ=$(find ~+ -type f -name "*.tar.gz")
     COINZIP=$(find ~+ -type f -name "*.zip")
+    COIN7Z=$(find ~+ -type f -name "*.7z")
+
     if [[ -f "$COINZIP" ]]; then
         for i in $(ls -f *.zip); do coinzipped=${i%%}; done
-        sudo unzip -q $coinzipped -d newcoin
+        sudo unzip -q "$coinzipped" -d newcoin
         for i in $(ls -d */); do repzipcoin=${i%%/}; done
-        elif [[ -f "$COINTARGZ" ]]; then
+    elif [[ -f "$COINTARGZ" ]]; then
         for i in $(ls -f *.tar.gz); do coinzipped=${i%%}; done
-        sudo tar xzvf $coinzipped
+        sudo tar xzvf "$coinzipped"
+        for i in $(ls -d */); do repzipcoin=${i%%/}; done
+    elif [[ -f "$COIN7Z" ]]; then
+        for i in $(ls -f *.7z); do coinzipped=${i%%}; done
+        sudo 7z x "$coinzipped" -o"newcoin"
         for i in $(ls -d */); do repzipcoin=${i%%/}; done
     else
-        echo -e "$RED => This is a not valid file zipped $COL_RESET"
+        echo -e "$RED => This is not a valid zipped file.$COL_RESET"
     fi
 fi
 
