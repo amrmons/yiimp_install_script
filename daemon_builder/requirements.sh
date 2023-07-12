@@ -25,15 +25,6 @@ cd $HOME/yiimp_install_script/daemon_builder
 hide_output sudo cp -r $HOME/yiimp_install_script/daemon_builder/utils/screen-scrypt-daemonbuilder.sh /etc/
 hide_output sudo chmod +x /etc/screen-scrypt-daemonbuilder.sh
 
-
-# Set editconf.py path
-#EDITCONFAPP=/usr/bin/editconf.py
-
-# Set stratum directory
-#STRATUM_DIR=$STORAGE_ROOT/yiimp/site/stratum
-
-
-
 #Install dependencies
 echo
 echo -e "$MAGENTA => Installing Package to compile crypto currency <= $COL_RESET"
@@ -45,14 +36,17 @@ libseccomp-dev libcap-dev libminiupnpc-dev gettext libcanberra-gtk-module libqre
 libqt5gui5 libqt5core5a libqt5webkit5-dev libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 
 if [[ ("${DISTRO}" == "18") ]]; then
+echo
+echo -e "$MAGENTA => Installing ubuntu 18 deps! <= $COL_REST"
 apt_install libz-dev libminiupnpc10
 hide_output sudo add-apt-repository -y ppa:bitcoin/bitcoin
 hide_output sudo apt-get update
 hide_output sudo apt-get -y upgrade
 apt_install libdb4.8-dev libdb4.8++-dev libdb5.3 libdb5.3++
+apt_install libdb5.3++-dev libdb-dev ibsqlite3-dev
 fi
 
-hide_output sudo apt -y install libdb5.3 libdb5.3++
+# hide_output sudo apt -y install libdb5.3 libdb5.3++
 echo -e "$GREEN => Complete <=$COL_RESET"
 
 echo
@@ -65,12 +59,6 @@ libusb-1.0-0-dev libudev-dev libboost-chrono-dev libboost-date-time-dev libboost
 libboost-regex-dev libboost-serialization-dev libboost-system-dev libboost-thread-dev python3 ccache doxygen graphviz default-libmysqlclient-dev \
 libnghttp2-dev librtmp-dev libssh2-1 libssh2-1-dev libldap2-dev libidn11-dev libpsl-dev libnatpmp-dev systemtap-sdt-dev qtwayland5
 
-if [[ ("${DISTRO}" == "18") ]]; then
-hide_output sudo apt -y install ibsqlite3-dev
-else
-hide_output sudo apt -y install libdb-dev
-hide_output sudo apt -y install libdb5.3++ libdb5.3++-dev
-fi
 
 echo -e "$GREEN Additional System Files Completed...$COL_RESET"
 echo
@@ -81,8 +69,6 @@ echo -e "$CYAN => Updating gcc & g++ to version 8 $COL_RESET"
 hide_output sudo apt-get update
 hide_output sudo apt-get -y upgrade
 apt_dist_upgrade
-
-apt_install software-properties-common
 
 if [[ ("${DISTRO}" == "18") ]]; then
 hide_output sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
