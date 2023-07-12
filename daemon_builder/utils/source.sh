@@ -965,7 +965,7 @@ if [[ ("$precompiled" == "true") ]]; then
     COINHASHFIND=$(find ~+ -type f -name "*-hash")
     sleep 0.5
     COINWALLETFIND=$(find ~+ -type f -name "*-wallet")
-    
+    sleep 0.5
     
     if [[ -f "$COINDFIND" ]]; then
         coind=$(basename $COINDFIND)
@@ -1015,7 +1015,7 @@ if [[ ("$precompiled" == "true") ]]; then
         echo
         echo -e "$CYAN ----------------------------------------------------------------------------------- $COL_RESET"
         echo
-        echo -e "$GREEN  ${coind} moving to =>$YELLOW /usr/bin/$COL_RESET${coind} $COL_RESET"
+        echo -e "$GREEN  ${coind} moving to =>$YELLOW /usr/bin/${coind} $COL_RESET"
         
     else
         clear
@@ -1040,7 +1040,7 @@ if [[ ("$precompiled" == "true") ]]; then
         sudo chmod +x /usr/bin/${coincli}
         coinclimv=true
         
-        echo -e "$GREEN  Coin-cli moving to => /usr/bin/$COL_RESET$YELLOW${coincli} $COL_RESET"
+        echo -e "$GREEN  Coin-cli moving to => /usr/bin/$YELLOW${coincli} $COL_RESET"
         
     fi
     
@@ -1052,7 +1052,7 @@ if [[ ("$precompiled" == "true") ]]; then
         sudo chmod +x /usr/bin/${cointx}
         cointxmv=true
         
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${cointx} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${cointx} $COL_RESET"
         
     fi
     
@@ -1064,7 +1064,7 @@ if [[ ("$precompiled" == "true") ]]; then
         sudo chmod +x /usr/bin/${coinutil}
         coinutilmv=true
         
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${coinutil} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${coinutil} $COL_RESET"
         
     fi
     
@@ -1076,7 +1076,7 @@ if [[ ("$precompiled" == "true") ]]; then
         sudo chmod +x /usr/bin/${coinhash}
         coinhashmv=true
         
-        echo -e "$GREEN  Coin-hash moving to => /usr/bin/$COL_RESET$YELLOW${coinwallet} $COL_RESET"
+        echo -e "$GREEN  Coin-hash moving to => /usr/bin/$YELLOW${coinwallet} $COL_RESET"
         
     fi
     
@@ -1088,7 +1088,7 @@ if [[ ("$precompiled" == "true") ]]; then
         sudo chmod +x /usr/bin/${coinwallet}
         coinwalletmv=true
         
-        echo -e "$GREEN  Moving ${coinwallet} to => /usr/bin/$COL_RESET$YELLOW${coinwallet} $COL_RESET"
+        echo -e "$GREEN  Moving ${coinwallet} to => /usr/bin/$YELLOW${coinwallet} $COL_RESET"
         
     fi
     echo
@@ -1098,14 +1098,14 @@ else
     echo
     echo -e "$CYAN --------------------------------------------------------------------------------------- $COL_RESET"
     echo
-    echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${coind} $COL_RESET"
+    echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${coind} $COL_RESET"
     
     sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${coind} /usr/bin
     sudo strip /usr/bin/${coind}
     coindmv=true
     
     if [[ ("$ifcoincli" == "y" || "$ifcoincli" == "Y") ]]; then
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${coincli} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${coincli} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${coincli} /usr/bin
         sudo strip /usr/bin/${coincli}
@@ -1113,7 +1113,7 @@ else
     fi
     
     if [[ ("$ifcointx" == "y" || "$ifcointx" == "Y") ]]; then
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${cointx} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${cointx} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${cointx} /usr/bin
         sudo strip /usr/bin/${cointx}
@@ -1121,7 +1121,7 @@ else
     fi
     
     if [[ ("$ifcoinutil" == "y" || "$ifcoinutil" == "Y") ]]; then
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${coinutil} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${coinutil} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${coinutil} /usr/bin
         sudo strip /usr/bin/${coinutil}
@@ -1129,7 +1129,7 @@ else
     fi
     
     if [[ ("$ifcoingtest" == "y" || "$ifcoingtest" == "Y") ]]; then
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${coingtest} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${coingtest} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${coingtest} /usr/bin
         sudo strip /usr/bin/${coingtest}
@@ -1137,7 +1137,7 @@ else
     fi
     
     if [[ ("$ifcointools" == "y" || "$ifcointools" == "Y") ]]; then
-        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$COL_RESET$YELLOW${cointools} $COL_RESET"
+        echo -e "$GREEN  Coin-tx moving to => /usr/bin/$YELLOW${cointools} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${cointools} /usr/bin
         sudo strip /usr/bin/${cointools}
@@ -1145,7 +1145,7 @@ else
     fi
     
     if [[ ("$ifcoinhash" == "y" || "$ifcoinhash" == "Y") ]]; then
-        echo -e "$GREEN  Coin-hash moving to => /usr/bin/$COL_RESET$YELLOW${coinhash} $COL_RESET"
+        echo -e "$GREEN  Coin-hash moving to => /usr/bin/$YELLOW${coinhash} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${coinhash} /usr/bin
         sudo strip /usr/bin/${coinhash}
@@ -1153,7 +1153,7 @@ else
     fi
     
     if [[ ("$ifcoinwallet" == "y" || "$ifcoinwallet" == "Y") ]]; then
-        echo -e "$GREEN  Coin-wallet moving to => /usr/bin/$COL_RESET$YELLOW${coinwallet} $COL_RESET"
+        echo -e "$GREEN  Coin-wallet moving to => /usr/bin/$YELLOW${coinwallet} $COL_RESET"
         
         sudo cp $STORAGE_ROOT/daemon_builder/temp_coin_builds/${coindir}/src/${coinwallet} /usr/bin
         sudo strip /usr/bin/${coinwallet}
@@ -1181,9 +1181,10 @@ if [[ "${YIIMPCONF}" == "true" ]]; then
         echo -e "$CYAN ----------------------------------------------------------------------------------- 	$COL_RESET"
         echo
         "${coinwallet}" -datadir=$STORAGE_ROOT/wallets/."${coind::-1}" -wallet=. create
+        sleep 0.5
         
     fi
-    
+    sleep 0.5
 else
     # Make the new wallet folder have user paste the coin.conf and finally start the daemon
     if [[ ! -e "${absolutepath}/wallets" ]]; then
@@ -1201,6 +1202,7 @@ else
         echo -e "$CYAN ----------------------------------------------------------------------------------- 	$COL_RESET"
         echo
         "${coinwallet}" -datadir="${absolutepath}"/wallets/."${coind::-1}" -wallet=. create
+        sleep 0.5
         
     fi
 fi
