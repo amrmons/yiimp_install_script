@@ -23,11 +23,6 @@ echo -e "$MAGENTA     <--$YELLOW Installing Berkeley , openssl , bls-signatures$
 echo -e "$MAGENTA    <----------------------------------------------------->$COL_RESET"
 echo
 
-echo -e "$YELLOW => Installing BitCoin PPA <= $COL_RESET"
-if [ ! -f /etc/apt/sources.list.d/bitcoin.list ]; then
-  hide_output sudo add-apt-repository -y ppa:bitcoin/bitcoin
-fi
-echo
 echo -e "$YELLOW => Installing additional system files required for daemons <= $COL_RESET"
 hide_output sudo apt-get update
 apt_install build-essential libtool autotools-dev \
