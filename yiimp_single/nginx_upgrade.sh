@@ -29,20 +29,27 @@ source $STORAGE_ROOT/yiimp/.wireguard.conf
 fi
 
 # NGINX upgrade TODO: CLEAN UP
-echo -e "$YELLOW => Upgrading NGINX  <= $COL_RESET"
+echo
+echo -e "$YELLOW => Installing NGINX  <= $COL_RESET"
+apt_install gnupg2 ca-certificates lsb-release ubuntu-keyring
 
 # Grab Nginx key and proper mainline package for distro
-echo "deb http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
-    | sudo tee /etc/apt/sources.list.d/nginx.list >/dev/null 2>&1
+curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
+    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
-sudo curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add - >/dev/null 2>&1
+
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
+    | sudo tee /etc/apt/sources.list.d/nginx.list >/dev/null
+
+echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
+    | sudo tee /etc/apt/preferences.d/99nginx >/dev/null
+
 hide_output sudo apt-get update
 hide_output sudo apt-get install -y nginx
 
 # Make additional conf directories, move and generate needed configurations.
 sudo mkdir -p /etc/nginx/yiimpool
-#sudo mkdir -p /etc/nginx/sites-available
-#sudo mkdir -p /etc/nginx/sites-enabled
 
 sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
 sudo cp -r nginx_confs/nginx.conf /etc/nginx/
@@ -52,7 +59,6 @@ sudo cp -r nginx_confs/security.conf /etc/nginx/yiimpool
 sudo cp -r nginx_confs/letsencrypt.conf /etc/nginx/yiimpool
 
 # Removing default nginx site configs.
-#sudo rm -r /etc/nginx/conf.d/default.conf
 sudo rm -r /etc/nginx/sites-enabled/default
 sudo rm -r /etc/nginx/sites-available/default*
 
