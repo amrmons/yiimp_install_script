@@ -69,7 +69,7 @@ fi
 fi
 
 if [ -z "${StratumURL:-}" ]; then
-DEFAULT_StratumURL=stratum.${DomainName}
+DEFAULT_StratumURL=${DomainName}
 input_box "Stratum URL" \
 "Enter your stratum URL. It is recommended to use another subdomain such as stratum.${DomainName}
 \n\nDo not add www. to the domain name.
@@ -159,7 +159,7 @@ fi
 input_box "Your Public IP" \
 "Enter your public IP from the remote system you will access your admin panel from.
 \n\nWe have guessed your public IP from the IP used to access this system.
-\n\nGo to whatsmyip.org if you are unsure this is your public IP.
+\n\nGo to whatsmyip.org if you are unsure if this is your public IP.
 \n\nYour Public IP:" \
 ${DEFAULT_PublicIP} \
 PublicIP
@@ -269,7 +269,7 @@ PanelUserDBPassword='"'"''"${PanelUserDBPassword}"''"'"'
 StratumDBUser='"${StratumDBUser}"'
 StratumUserDBPassword='"'"''"${StratumUserDBPassword}"''"'"'
 # Unless you do some serious modifications this installer will not work with any other repo of yiimp!
-YiiMPRepo='https://github.com/0x001a/yiimp.git'
+YiiMPRepo='https://github.com/Kudaraidee/yiimp.git'
 ' | sudo -E tee $STORAGE_ROOT/yiimp/.yiimp.conf >/dev/null 2>&1
 else
 echo 'STORAGE_USER='"${STORAGE_USER}"'
@@ -293,7 +293,7 @@ StratumDBUser='"${StratumDBUser}"'
 StratumUserDBPassword='"'"''"${StratumUserDBPassword}"''"'"'
 YiiMPStratumName='"${YiiMPStratumName}"'
 # Unless you do some serious modifications this installer will not work with any other repo of yiimp!
-YiiMPRepo='https://github.com/0x001a/yiimp.git'
+YiiMPRepo='https://github.com/Kudaraidee/yiimp.git'
 ' | sudo -E tee $STORAGE_ROOT/yiimp/.yiimp.conf >/dev/null 2>&1
 fi;;
 1)
