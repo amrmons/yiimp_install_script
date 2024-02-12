@@ -147,6 +147,3 @@ yiimp
   <li>Polygon: 0xdA929d4f03e1009Fc031210DDE03bC40ea66D044</li>
 </ul>
 <p>We appreciate your generosity and support. Thank you!</p>
-
-<p>We appreciate your generosity and support. Thank you!</p>
-
