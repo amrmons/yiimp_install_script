@@ -1,4 +1,4 @@
-<h1 align="center">Yiimpool Yiimp Installer with DaemonBuilder and Addport Support</h1>
+<h1 align="center">YiiMPool YiiMP Installer with DaemonBuilder and Addport Support</h1>
 <p align="center">
   <img alt="Discord" src="https://img.shields.io/discord/904564600354254898?label=Discord&style=for-the-badge">
   <img alt="GitHub issues" src="https://img.shields.io/github/issues/afiniel/yiimp_install_script?style=for-the-badge">
@@ -8,7 +8,7 @@
   <img src="./.assets/motd.png" alt="motd" width="500" height="450">
 </p>
 <h2 align="center">Description</h2>
-<p>Yiimpool Yiimp Installer is an automated script that sets up a fully functional Yiimp mining pool on an Ubuntu 18.04 or 20.04 VPS. The script includes necessary dependencies, configurations, and security settings to get your pool up and running. Features include:</p>
+<p>YiiMPool YiiMP Installer is an automated script that sets up a fully functional YiiMP mining pool on an Ubuntu 18.04 or 20.04 VPS. The script includes necessary dependencies, configurations, and security settings to get your pool up and running. Features include:</p>
 <ul>
   <li>Automatic coin daemon compilation using DaemonBuilder</li>
   <li>Support for custom ports</li>
@@ -27,7 +27,7 @@
 <h3 align="left">Installer will ask:</h3>
 <ul>
   <li>Using domain name</li>
-  <li>Using sub-domain as main domain?</li>
+  <li>Using sub-domain as the main domain?</li>
   <li>Domain Name</li>
   <li>Stratum Domain</li>
   <li>Install SSL</li>
@@ -37,7 +37,7 @@
   <li>DB Panel User Password</li>
   <li>DB Stratum Password</li>
   <li>Admin Portal Access Location</li>
-  <li>Stratum to be built with autoexchange enable</li>
+  <li>Stratum to be built with autoexchange enabled</li>
 </ul>
 <h4 align="left">To install:</h4>
 
@@ -46,15 +46,15 @@ curl https://raw.githubusercontent.com/afiniel/yiimp_install_script/master/insta
 
 ```
   Installation will take approximately 15 minutes. The installer will let you know when the installation is complete.
-  If you have any issues with the installation, open an issue here on Github.
+  If you encounter any issues with the installation, please open an issue on GitHub.
 
 
 <h3>Finish! Remember to</h3>
 <h4>A server reboot is REQUIRED after the installation is fully completed to finalize the installation process</h4>
 <p>
-  After rebooting the server, log back in to your user account you have created. When the rebooting process is complete, log in again with your user account and you have successfully installed YiiMP on your server.
+  After rebooting the server, log back in to your created user account. When the rebooting process is complete, log in again with your user account, and you have successfully installed YiiMP on your server.
 </p>
-<h4>On first reboot it may take up to 1-2 minutes before the cron screens auto-start. After waiting 1-2 minutes type:</h4>
+<h4>On the first reboot, it may take up to 1-2 minutes before the cron screens auto-start. After waiting 1-2 minutes, type:</h4>
 <pre>
 motd
 </pre>
@@ -105,8 +105,10 @@ motd
       <td><pre>/home/crypto-data/yiimp/site/stratum</pre></td>
       <td>New location for your stratum files</td>
     </tr>
+  </tbody>
+</table>
 
-Permissions have been setup correctly allowing your main user write acess to the /home/crypto-data directories! Changing file or directory permissions after install will cause your YiiMP to not function correctly you have been warned!!
+Permissions have been set up correctly allowing your main user write access to the /home/crypto-data directories! Changing file or directory permissions after installation will cause your YiiMP to not function correctly; you have been warned!!
 
 <!-- 🔗 Commands -->
 <h3>Commands</h3>
@@ -144,5 +146,7 @@ yiimp
   <li>BEP-20: 0xdA929d4f03e1009Fc031210DDE03bC40ea66D044</li>
   <li>Polygon: 0xdA929d4f03e1009Fc031210DDE03bC40ea66D044</li>
 </ul>
+<p>We appreciate your generosity and support. Thank you!</p>
+
 <p>We appreciate your generosity and support. Thank you!</p>
 
