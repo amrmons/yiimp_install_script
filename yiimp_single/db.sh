@@ -148,12 +148,7 @@ echo -e "$YELLOW => Tweaking MariaDB for better performance <= $COL_RESET"
 
 # Define MariaDB configuration changes
 config_changes=(
-  'max_connections = 800'
-  'thread_cache_size = 512'
-  'tmp_table_size = 128M'
-  'max_heap_table_size = 128M'
-  'wait_timeout = 60'
-  'max_allowed_packet = 64M'
+
 )
 
 # Add bind-address if wireguard is true.
