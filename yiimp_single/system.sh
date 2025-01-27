@@ -236,7 +236,7 @@ sleep 3
 #	sudo rm -f /var/lib/ubuntu-release-upgrader/release-upgrade-available
 #fi
 sudo systemctl restart php7.2-fpm
-sudo systemctl status php7.2-fpm | sed -n "1,3p
+sudo systemctl status php7.2-fpm | sed -n "1,3p"
 # fix CDbConnection failed to open the DB connection.
 if [[ "$DISTRO" == "16" || "$DISTRO" == "18" ]]; then
 echo -e "$CYAN => Fixing DBconnection issue... $COL_RESET"
